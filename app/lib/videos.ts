@@ -24,3 +24,5 @@ export const getVideos = () => {
 
   return validatedData.data;
 };
+
+export type Video = z.infer<typeof VideoSchema>;

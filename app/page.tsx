@@ -1,6 +1,8 @@
-import Image from "next/image";
-import { getVideos } from "./lib/videos";
 import Link from "next/link";
+import Image from "next/image";
+import GalleryModal from "./components/gallery-modal";
+
+import { getVideos } from "./lib/videos";
 
 const Page = () => {
   const videos = getVideos();
@@ -30,6 +32,8 @@ const Page = () => {
           </Link>
         ))}
       </div>
+
+      <GalleryModal videos={videos} />
     </main>
   );
 };
