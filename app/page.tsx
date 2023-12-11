@@ -11,15 +11,13 @@ const Page = () => {
     throw new Error("no vids :(");
   }
 
-  const video = videos[0];
-
   return (
     <main className="h-screen flex flex-col box-border">
       <h1 className="text-center">Twincool</h1>
 
       <div className="bg-red-200 flex-1 flex gap-x-3 gap-y-12 items-start flex-wrap content-start overflow-auto py-8 px-3">
-        {Array.from({ length: 28 }).map((_, idx) => (
-          <Link href={`/?v=${video.id}`} key={idx} className="relative">
+        {videos.map((video) => (
+          <Link key={video.id} href={`/?v=${video.id}`} className="relative">
             <Image
               alt={video.title}
               height={180}
