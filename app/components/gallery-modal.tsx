@@ -45,7 +45,7 @@ const GalleryModal = ({ videos }: { videos: Video[] }) => {
               }}
               className="relative flex flex-col justify-around h-full w-full"
             >
-              <video controls loop src={video.src} className="m-5" />
+              <video controls autoPlay loop src={video.src} className="m-5" />
 
               <Dialog.Title className="p-3 bg-black text-white absolute bottom-3 right-5">
                 {video.title}

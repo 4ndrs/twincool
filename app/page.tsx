@@ -24,7 +24,7 @@ const Page = () => {
               width={320}
               src={video.thumbnail}
             />
-            <h1 className="absolute left-1/2 -bottom-8 -translate-x-1/2">
+            <h1 className="absolute left-1/2 -bottom-8 -translate-x-1/2 whitespace-nowrap">
               {video.title}
             </h1>
           </Link>
