@@ -34,8 +34,8 @@ const GalleryModal = ({ videos }: { videos: Video[] }) => {
   return (
     <Dialog.Root open={true} onOpenChange={handleClose}>
       <Dialog.Portal container={document.body}>
-        <Dialog.Overlay className="bg-black/25 fixed inset-0">
-          <Dialog.Content className="flex h-full w-full">
+        <Dialog.Overlay className="fixed inset-0 bg-black/25">
+          <Dialog.Content className="flex h-full w-full flex-col md:flex-row">
             <div
               onClick={(event) => {
                 if (event.target === event.currentTarget) {
@@ -43,21 +43,21 @@ const GalleryModal = ({ videos }: { videos: Video[] }) => {
                   handleClose();
                 }
               }}
-              className="relative flex flex-col justify-around h-full w-full"
+              className="relative flex h-full w-full flex-1 flex-col justify-around"
             >
               <video controls autoPlay loop src={video.src} className="m-5" />
 
-              <Dialog.Title className="p-3 bg-black text-white absolute bottom-3 right-5">
+              <Dialog.Title className="absolute bottom-3 right-5 bg-black p-3 text-xs text-white xl:text-base">
                 {video.title}
               </Dialog.Title>
             </div>
 
-            <div className="bg-black/80 w-[320px] flex flex-col overflow-y-auto">
+            <div className="flex overflow-x-auto bg-black/80 md:flex-col md:overflow-y-auto">
               {videos.map((video) => (
                 <Link
                   key={video.id}
                   href={`/?v=${video.id}`}
-                  className={clsx("p-2", {
+                  className={clsx("flex-shrink-0 p-2", {
                     "bg-sky-500": video.id === videoId,
                   })}
                 >
@@ -66,6 +66,7 @@ const GalleryModal = ({ videos }: { videos: Video[] }) => {
                     src={video.thumbnail}
                     height={180}
                     width={320}
+                    className="h-[100px] w-auto xl:h-[180px]"
                   />
                 </Link>
               ))}
